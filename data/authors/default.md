@@ -1,16 +1,11 @@
 ---
-name: Tails Azimuth
+name: Kaito Kikuchi
 avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+email: info@musicolare.com
+twitter: https://twitter.com/chorkaichan
+github: https://github.com/chorkaichan
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+歌うエンジニア。制作チーム [musicolare](https://musicolare.com) の開発担当。動画配信プラットフォーム [initium ; auditorium](https://www.initium-auditorium.com) のリードエンジニア。React および React Native を用いた Web・アプリケーション開発、AWS を用いたバックエンド開発を行う。
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+合唱を中心とした声楽アンサンブルに取り組んでおり、所属団体多数。[World Youth Choir](https://www.worldyouthchoir.org/) 2020 選出メンバー。第 5-6, 9-11 回[JCA ユースクワイア](https://jcanet.or.jp/event/jca-youth/JCAyouth-concept.htm)選出メンバー。[合唱団 標](https://shirube-choir.com) 主宰。[Chor OBANDES](https://chor-obandes.jimdofree.com/) 団内指揮者。

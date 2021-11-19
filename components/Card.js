@@ -9,9 +9,9 @@ const Card = ({ title, description, imgSrc, href }) => (
           <Image
             alt={title}
             src={imgSrc}
-            className="object-cover object-center lg:h-48 md:h-36"
-            width={544}
-            height={306}
+            className="object-cover object-center lg:h-64 md:h-48"
+            width="544"
+            height="380"
           />
         </Link>
       ) : (
@@ -19,12 +19,12 @@ const Card = ({ title, description, imgSrc, href }) => (
           alt={title}
           src={imgSrc}
           className="object-cover object-center lg:h-48 md:h-36"
-          width={544}
-          height={306}
+          width="544"
+          height="380"
         />
       )}
       <div className="p-6">
-        <h2 className="mb-3 text-2xl font-bold leading-8 tracking-tight">
+        <h2 className="mb-3 text-2xl font-bold tracking-tight leading-8">
           {href ? (
             <Link href={href} aria-label={`Link to ${title}`}>
               {title}
@@ -33,14 +33,14 @@ const Card = ({ title, description, imgSrc, href }) => (
             title
           )}
         </h2>
-        <p className="mb-3 prose text-gray-500 max-w-none dark:text-gray-400">{description}</p>
+        <p className="mb-3 text-gray-500 prose max-w-none dark:text-gray-400">{description}</p>
         {href && (
           <Link
             href={href}
             className="text-base font-medium leading-6 text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label={`Link to ${title}`}
           >
-            Learn more &rarr;
+            サイトを見る &rarr;
           </Link>
         )}
       </div>
