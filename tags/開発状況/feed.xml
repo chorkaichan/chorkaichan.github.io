@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>musicolare tech blog</title>
+      <link>https://chorkaichan.github.io/blog</link>
+      <description>制作チームmusicolareの開発担当（@chorkaichan）による技術ブログです。</description>
+      <language>ja-jp</language>
+      <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
+      <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
+      <lastBuildDate>Fri, 19 Nov 2021 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://chorkaichan.github.io/tags/開発状況/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://chorkaichan.github.io/blog/started-a-blog</guid>
+    <title>テックブログをはじめます</title>
+    <link>https://chorkaichan.github.io/blog/started-a-blog</link>
+    <description>テックブログをはじめます。musicolare および initium ; auditorium といった、著者が所掌しているプロジェクトについての技術情報をお送りします。</description>
+    <pubDate>Fri, 19 Nov 2021 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>雑記</category><category>開発状況</category>
+  </item>
+
+    </channel>
+  </rss>
