@@ -27,7 +27,7 @@ jobs:
     - name: install
       run: npm install --frozen-lockfile
 
-   - name: build
+    - name: build
       run: npm run build
 
     - name: export
