@@ -16,22 +16,27 @@ jobs:
       with:
         node-version: '12.x'
 
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
     - name: Cache dependencies
-      uses: actions/cache@v1
+      id: yarn-cache
+      uses: actions/cache@v2
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
         restore-keys: |
-          ${{ runner.os }}-node-
+          ${{ runner.os }}-yarn-
 
     - name: install
-      run: npm install --frozen-lockfile
+      run: yarn install
 
     - name: build
-      run: npm run build
+      run: yarn build
 
     - name: export
-      run: npm run export
+      run: yarn export
 
     - name: add nojekyll
       run: touch ./out/.nojekyll
