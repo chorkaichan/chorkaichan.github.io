@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Fri, 19 Nov 2021 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 30 Nov 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/tags/開発状況/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202111-late</guid>
+    <title>2021年11月後半の作業状況</title>
+    <link>https://chorkaichan.github.io/blog/202111-late</link>
+    <description>RDS, DynamoDB, MongoDBを比較した上でのデータベース選定が主な話題です。</description>
+    <pubDate>Tue, 30 Nov 2021 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category><category>DB</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/started-a-blog</guid>
     <title>テックブログをはじめます</title>

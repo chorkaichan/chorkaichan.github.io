@@ -1,0 +1,1 @@
+{"pageProps":{"posts":[{"title":"2021年11月後半の作業状況","date":"2021-11-30T00:00:00.000Z","tags":["開発状況","DB"],"draft":false,"summary":"RDS, DynamoDB, MongoDBを比較した上でのデータベース選定が主な話題です。","slug":"202111-late"}],"tag":"db"},"__N_SSG":true}

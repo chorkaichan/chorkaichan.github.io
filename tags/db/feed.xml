@@ -8,7 +8,7 @@
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
       <lastBuildDate>Tue, 30 Nov 2021 00:00:00 GMT</lastBuildDate>
-      <atom:link href="https://chorkaichan.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://chorkaichan.github.io/tags/db/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
     <guid>https://chorkaichan.github.io/blog/202111-late</guid>
@@ -18,16 +18,6 @@
     <pubDate>Tue, 30 Nov 2021 00:00:00 GMT</pubDate>
     <author>info@musicolare.com (Kaito Kikuchi)</author>
     <category>開発状況</category><category>DB</category>
-  </item>
-
-  <item>
-    <guid>https://chorkaichan.github.io/blog/started-a-blog</guid>
-    <title>テックブログをはじめます</title>
-    <link>https://chorkaichan.github.io/blog/started-a-blog</link>
-    <description>テックブログをはじめます。musicolare および initium ; auditorium といった、著者が所掌しているプロジェクトについての技術情報をお送りします。</description>
-    <pubDate>Fri, 19 Nov 2021 00:00:00 GMT</pubDate>
-    <author>info@musicolare.com (Kaito Kikuchi)</author>
-    <category>雑記</category><category>開発状況</category>
   </item>
 
     </channel>
