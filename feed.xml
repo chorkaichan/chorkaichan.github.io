@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Tue, 30 Nov 2021 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Wed, 15 Dec 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202112-early</guid>
+    <title>2021年12月後半の作業状況</title>
+    <link>https://chorkaichan.github.io/blog/202112-early</link>
+    <description>レクチャー動画リリースと、DBスキーマ作成の話題です。</description>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/202111-late</guid>
     <title>2021年11月後半の作業状況</title>
