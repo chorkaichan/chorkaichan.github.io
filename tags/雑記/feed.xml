@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Fri, 19 Nov 2021 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 19 Dec 2021 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/tags/雑記/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202112-motivation</guid>
+    <title>いま現在考えていること、モチベーションなど</title>
+    <link>https://chorkaichan.github.io/blog/202112-motivation</link>
+    <description>initium ; auditoriumの開発や各種受託開発に携わる中で、一体何がモチベーションになっているのか、何を考えて手を動かしているのかなど。</description>
+    <pubDate>Sun, 19 Dec 2021 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>雑記</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/started-a-blog</guid>
     <title>テックブログをはじめます</title>
