@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Wed, 05 Jan 2022 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Tue, 15 Feb 2022 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202202-early</guid>
+    <title>2022年1月後半〜2月前半の作業状況</title>
+    <link>https://chorkaichan.github.io/blog/202202-early</link>
+    <description>AWS Cognitoを用いた認証、MongoDB周り、電話番号をparseするライブラリの作成の話です。</description>
+    <pubDate>Tue, 15 Feb 2022 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/202112-late</guid>
     <title>2021年12月後半の作業状況</title>
