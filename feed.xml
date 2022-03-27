@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Tue, 15 Feb 2022 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sun, 27 Mar 2022 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202203-late</guid>
+    <title>2022年2月後半〜3月後半の作業状況</title>
+    <link>https://chorkaichan.github.io/blog/202203-late</link>
+    <description>AWS Cognito接続、MongoDB疎通、Stripe決済、およびWebサイトデザイン構築の話です。</description>
+    <pubDate>Sun, 27 Mar 2022 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/202202-early</guid>
     <title>2022年1月後半〜2月前半の作業状況</title>
