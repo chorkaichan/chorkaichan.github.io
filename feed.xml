@@ -7,9 +7,19 @@
       <language>ja-jp</language>
       <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
       <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
-      <lastBuildDate>Thu, 02 Jun 2022 00:00:00 GMT</lastBuildDate>
+      <lastBuildDate>Sat, 18 Jan 2025 00:00:00 GMT</lastBuildDate>
       <atom:link href="https://chorkaichan.github.io/feed.xml" rel="self" type="application/rss+xml"/>
       
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202501-late</guid>
+    <title>合唱データベース《ChoraLib》を開発しました</title>
+    <link>https://chorkaichan.github.io/blog/202501-late</link>
+    <description>合唱データベース《ChoralLib》を開発しました。本サービスを作るに至った経緯と目的、今後の展望についてまとめています。</description>
+    <pubDate>Sat, 18 Jan 2025 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category><category>ChoralLib</category>
+  </item>
+
   <item>
     <guid>https://chorkaichan.github.io/blog/202205-system-migration</guid>
     <title>システム移行について（2022年5月の作業状況）</title>

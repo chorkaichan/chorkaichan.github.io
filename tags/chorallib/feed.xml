@@ -1,0 +1,24 @@
+
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+      <title>musicolare tech blog</title>
+      <link>https://chorkaichan.github.io/blog</link>
+      <description>制作チームmusicolareの開発担当（@chorkaichan）による技術ブログです。</description>
+      <language>ja-jp</language>
+      <managingEditor>info@musicolare.com (Kaito Kikuchi)</managingEditor>
+      <webMaster>info@musicolare.com (Kaito Kikuchi)</webMaster>
+      <lastBuildDate>Sat, 18 Jan 2025 00:00:00 GMT</lastBuildDate>
+      <atom:link href="https://chorkaichan.github.io/tags/chorallib/feed.xml" rel="self" type="application/rss+xml"/>
+      
+  <item>
+    <guid>https://chorkaichan.github.io/blog/202501-late</guid>
+    <title>合唱データベース《ChoraLib》を開発しました</title>
+    <link>https://chorkaichan.github.io/blog/202501-late</link>
+    <description>合唱データベース《ChoralLib》を開発しました。本サービスを作るに至った経緯と目的、今後の展望についてまとめています。</description>
+    <pubDate>Sat, 18 Jan 2025 00:00:00 GMT</pubDate>
+    <author>info@musicolare.com (Kaito Kikuchi)</author>
+    <category>開発状況</category><category>ChoralLib</category>
+  </item>
+
+    </channel>
+  </rss>
