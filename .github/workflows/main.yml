@@ -46,7 +46,7 @@ jobs:
   # Deployment job
   deploy:
     environment:
-      name: gt-pages
+      name: gh-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
