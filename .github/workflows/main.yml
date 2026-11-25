@@ -5,6 +5,11 @@ on:
   push:
     branches: ["main"]
   workflow_dispatch:
+  # Rebuild every day at 23:57 JST (14:57 UTC) so posts dated the next day go public at midnight.
+  # lib/publish.js counts posts dated a few minutes ahead as published.
+  # GitHub may start scheduled runs late, and stops them after 60 days without activity in the repository.
+  schedule:
+    - cron: "57 14 * * *"
 
 permissions:
   contents: read
