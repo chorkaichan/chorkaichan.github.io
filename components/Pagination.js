@@ -25,7 +25,7 @@ export default function Pagination({ totalPages, currentPage }) {
         </span>
         {!nextPage && (
           <button rel="next" className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            前へ
+            次へ
           </button>
         )}
         {nextPage && (
