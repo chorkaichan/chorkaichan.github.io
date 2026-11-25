@@ -1,5 +1,5 @@
 ---
-title: 'I Built "Agent Cats," a Miniature Garden for Watching Over Your Claude Code Cats'
+title: 'Agent Cats: A Miniature Garden for Your Claude Code Cats'
 date: '2026-11-25'
 tags: ['Dev Updates', 'Agent Cats', 'Claude Code']
 draft: false

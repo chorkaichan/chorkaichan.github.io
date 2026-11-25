@@ -1,5 +1,5 @@
 ---
-title: 'What I Am Thinking About Now, and What Motivates Me'
+title: 'Current Thoughts and Motivation'
 date: '2021-12-19'
 tags: ['Notes']
 draft: false
