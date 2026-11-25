@@ -13,8 +13,11 @@ export default function Pagination({ totalPages, currentPage }) {
           </button>
         )}
         {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <button rel="previous">前へ</button>
+          <Link
+            href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}
+            rel="prev"
+          >
+            前へ
           </Link>
         )}
         <span>
@@ -22,12 +25,12 @@ export default function Pagination({ totalPages, currentPage }) {
         </span>
         {!nextPage && (
           <button rel="next" className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            前へ
+            次へ
           </button>
         )}
         {nextPage && (
-          <Link href={`/blog/page/${currentPage + 1}`}>
-            <button rel="next">次へ</button>
+          <Link href={`/blog/page/${currentPage + 1}`} rel="next">
+            次へ
           </Link>
         )}
       </nav>

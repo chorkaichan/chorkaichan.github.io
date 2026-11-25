@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: yarn
       - id: configurepages
         uses: actions/configure-pages@v5
@@ -34,11 +34,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
       - run: yarn
-      - run: yarn build && yarn export
-        env:
-          EXPORT: 1
-          UNOPTIMIZED: 1
-          BASE_PATH: ${{ steps.configurepages.outputs.base_path }}
+      # next.config.js sets `output: 'export'`, so `yarn build` writes the static site to out/.
+      - run: yarn build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out

@@ -84,8 +84,6 @@ I wanted it to be nearly as feature-rich as popular blogging templates like [bea
 First, run the development server:
 
 ```bash
-npm start
-# or
 npm run dev
 ```
 
@@ -159,7 +157,7 @@ layout: PostLayout
 
 ### Compose
 
-Run `node ./scripts/compose.js` to bootstrap a new post.
+Run `node ./scripts/compose.mjs` to bootstrap a new post.
 
 Follow the interactive prompt to generate a post with pre-filled front matter.
 
