@@ -1,7 +1,9 @@
 // Keeps /blog/page/<n> URLs from before the site was bilingual working.
 import LocaleRedirect from '@/components/LocaleRedirect'
+import { PageSEO } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata'
 import { getPosts } from '@/lib/content'
-import { LOCALES } from '@/lib/i18n'
+import { DEFAULT_LOCALE, LOCALES, getMessages } from '@/lib/i18n'
 import { POSTS_PER_PAGE } from '../../[locale]/blog'
 
 const totalPages = async (locale) => Math.ceil((await getPosts(locale)).length / POSTS_PER_PAGE)
@@ -23,5 +25,12 @@ export async function getStaticProps({ params: { page } }) {
 }
 
 export default function LegacyPage({ page, available }) {
-  return <LocaleRedirect path={`/blog/page/${page}`} available={available} />
+  return (
+    <LocaleRedirect path={`/blog/page/${page}`} available={available}>
+      <PageSEO
+        title={siteMetadata.title}
+        description={getMessages(DEFAULT_LOCALE).siteDescription}
+      />
+    </LocaleRedirect>
+  )
 }

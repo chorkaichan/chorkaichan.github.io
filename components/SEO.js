@@ -3,23 +3,24 @@ import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 import { LOCALES, LOCALE_META, localePath, swapLocale, useLocale } from '@/lib/i18n'
 
-// Links to the same page in every locale, so that search engines can pair the translations.
-// `alternates` comes from pages that know which translations exist (posts and tags).
-const LocaleAlternates = ({ alternates }) => {
+// Paths of the same page in every locale. `alternates` comes from pages that know which
+// translations exist (posts and tags).
+const useLocaleHrefs = (alternates) => {
   const router = useRouter()
-  const locale = useLocale()
-  const hrefs = Object.fromEntries(
+  return Object.fromEntries(
     LOCALES.filter((l) => !alternates || alternates[l]?.exists !== false).map((l) => [
       l,
       alternates?.[l]?.href || swapLocale(router.asPath, l),
     ])
   )
+}
+
+// Links to the same page in every locale, so that search engines can pair the translations.
+const LocaleAlternates = ({ hrefs, canonical }) => {
+  const locale = useLocale()
   return (
     <Head>
-      <link
-        rel="canonical"
-        href={`${siteMetadata.siteUrl}${hrefs[locale] || swapLocale(router.asPath, locale)}`}
-      />
+      <link rel="canonical" href={canonical} />
       {Object.entries(hrefs).map(([l, href]) => (
         <link key={l} rel="alternate" hrefLang={l} href={`${siteMetadata.siteUrl}${href}`} />
       ))}
@@ -38,14 +39,17 @@ const LocaleAlternates = ({ alternates }) => {
 const CommonSEO = ({ title, description, ogType, ogImage, twImage, alternates }) => {
   const router = useRouter()
   const locale = useLocale()
+  const hrefs = useLocaleHrefs(alternates)
+  // On a page without a locale in its URL (`/`, `/blog/...`), this is the page it redirects to.
+  const canonical = `${siteMetadata.siteUrl}${hrefs[locale] || swapLocale(router.asPath, locale)}`
   return (
     <>
-      <LocaleAlternates alternates={alternates} />
+      <LocaleAlternates hrefs={hrefs} canonical={canonical} />
       <Head>
         <title>{title}</title>
         <meta name="robots" content="follow, index" />
         <meta name="description" content={description} />
-        <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+        <meta property="og:url" content={canonical} />
         <meta property="og:type" content={ogType} />
         <meta property="og:site_name" content={siteMetadata.title} />
         <meta property="og:locale" content={LOCALE_META[locale].ogLocale} />
