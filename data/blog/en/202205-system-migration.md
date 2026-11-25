@@ -1,5 +1,5 @@
 ---
-title: 'About the System Migration (Work Update: May 2022)'
+title: 'The System Migration (Update: May 2022)'
 date: '2022-06-02'
 tags: ['Dev Updates']
 draft: false
