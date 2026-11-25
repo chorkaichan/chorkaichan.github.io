@@ -3,7 +3,7 @@ import LocaleRedirect from '@/components/LocaleRedirect'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getPosts } from '@/lib/content'
-import { DEFAULT_LOCALE, LOCALES, getMessages } from '@/lib/i18n'
+import { LOCALES, getMessages, shareLocale } from '@/lib/i18n'
 import { POSTS_PER_PAGE } from '../../[locale]/blog'
 
 const totalPages = async (locale) => Math.ceil((await getPosts(locale)).length / POSTS_PER_PAGE)
@@ -29,7 +29,7 @@ export default function LegacyPage({ page, available }) {
     <LocaleRedirect path={`/blog/page/${page}`} available={available}>
       <PageSEO
         title={siteMetadata.title}
-        description={getMessages(DEFAULT_LOCALE).siteDescription}
+        description={getMessages(shareLocale(available)).siteDescription}
       />
     </LocaleRedirect>
   )

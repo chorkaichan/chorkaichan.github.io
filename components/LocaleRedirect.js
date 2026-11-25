@@ -7,14 +7,15 @@ import {
   LocaleContext,
   detectLocale,
   localePath,
+  shareLocale,
 } from '@/lib/i18n'
 
 // Sends a visitor from a path without a locale (`/`, or a URL from before the site was bilingual)
 // to the same page in their language. GitHub Pages cannot redirect on the server, so this runs in
 // the browser; without JavaScript the meta refresh falls back to the Japanese page.
 //
-// SNS crawlers follow neither, so `children` renders the SEO tags of the page in the fallback
-// locale (usually Japanese). A link to `/` then shows the same card as a link to `/ja/`.
+// SNS crawlers follow neither, so `children` renders the SEO tags of the page in English when the
+// page has an English version. A link to `/` then shows the same card as a link to `/en/`.
 export default function LocaleRedirect({ path = '/', available = LOCALES, children }) {
   // A page that exists in only one language (e.g. an untranslated post) opens in that language.
   const fallback = available.includes(DEFAULT_LOCALE) ? DEFAULT_LOCALE : available[0]
@@ -26,7 +27,7 @@ export default function LocaleRedirect({ path = '/', available = LOCALES, childr
   })
 
   return (
-    <LocaleContext.Provider value={fallback}>
+    <LocaleContext.Provider value={shareLocale(available)}>
       {children}
       {/* Rendered after `children`, so next/head keeps this robots tag instead of the page's. */}
       <Head>

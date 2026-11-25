@@ -3,7 +3,7 @@ import LocaleRedirect from '@/components/LocaleRedirect'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getAuthor, getPost, getPostSlugs, postAlternates } from '@/lib/content'
-import { DEFAULT_LOCALE, LOCALES, localePath } from '@/lib/i18n'
+import { LOCALES, localePath, shareLocale } from '@/lib/i18n'
 
 export async function getStaticPaths() {
   const slugs = new Set(LOCALES.flatMap((locale) => getPostSlugs(locale)))
@@ -16,8 +16,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const slug = params.slug.join('/')
   const available = LOCALES.filter((locale) => getPostSlugs(locale).includes(slug))
-  // The SEO tags come from the post that visitors without JavaScript (and SNS crawlers) get.
-  const locale = available.includes(DEFAULT_LOCALE) ? DEFAULT_LOCALE : available[0]
+  // SNS cards show the English post when there is one.
+  const locale = shareLocale(available)
   const { frontMatter } = await getPost(locale, slug)
   const authorDetails = await Promise.all(
     (frontMatter.authors || ['default']).map(
