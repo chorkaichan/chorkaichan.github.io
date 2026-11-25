@@ -1,8 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { DEFAULT_LOCALE, LOCALE_META, isLocale } from '@/lib/i18n'
+
 class MyDocument extends Document {
   render() {
+    // Pages under pages/[locale]/ carry the locale in their route params.
+    const locale = this.props.__NEXT_DATA__.query?.locale
+    const lang = LOCALE_META[isLocale(locale) ? locale : DEFAULT_LOCALE].htmlLang
     return (
-      <Html lang="en">
+      <Html lang={lang}>
         <Head>
           <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
           <link
@@ -21,7 +26,6 @@ class MyDocument extends Document {
           <link rel="mask-icon" href="/static/favicons/safari-pinned-tab.svg" color="#5bbad5" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
-          <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
           <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"

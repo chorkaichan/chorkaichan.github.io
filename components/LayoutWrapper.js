@@ -6,14 +6,18 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
+import LocaleSwitch from './LocaleSwitch'
+import { localePath, useLocale, useMessages } from '@/lib/i18n'
 
-const LayoutWrapper = ({ children }) => {
+const LayoutWrapper = ({ children, alternates }) => {
+  const locale = useLocale()
+  const t = useMessages()
   return (
     <SectionContainer>
       <div className="flex flex-col justify-between h-screen">
         <header className="flex items-center justify-between py-10">
           <div>
-            <Link href="/" aria-label="Tailwind CSS Blog">
+            <Link href={localePath(locale)} aria-label={siteMetadata.headerTitle}>
               <div className="flex items-center justify-between">
                 <div className="mr-3">
                   <Logo />
@@ -32,14 +36,15 @@ const LayoutWrapper = ({ children }) => {
             <div className="hidden sm:block">
               {headerNavLinks.map((link) => (
                 <Link
-                  key={link.title}
-                  href={link.href}
+                  key={link.key}
+                  href={localePath(locale, link.href)}
                   className="p-1 font-medium text-gray-900 sm:p-4 dark:text-gray-100"
                 >
-                  {link.title}
+                  {t.nav[link.key]}
                 </Link>
               ))}
             </div>
+            <LocaleSwitch alternates={alternates} className="ml-1 sm:ml-2" />
             <ThemeSwitch />
             <MobileNav />
           </div>

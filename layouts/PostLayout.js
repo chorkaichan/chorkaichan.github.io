@@ -7,23 +7,31 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { LOCALE_META, localePath, useLocale, useMessages } from '@/lib/i18n'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`
-  )}`
+const discussUrl = (url) => `https://mobile.twitter.com/search?q=${encodeURIComponent(url)}`
 
 const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
+export default function PostLayout({
+  frontMatter,
+  authorDetails,
+  next,
+  prev,
+  alternates,
+  children,
+}) {
   const { slug, fileName, date, title, tags } = frontMatter
+  const locale = useLocale()
+  const t = useMessages()
 
   return (
     <SectionContainer>
       <BlogSEO
-        url={`${siteMetadata.siteUrl}/blog/${slug}`}
+        url={`${siteMetadata.siteUrl}${localePath(locale, `/blog/${slug}`)}`}
         authorDetails={authorDetails}
+        alternates={alternates}
         {...frontMatter}
       />
       <ScrollTopAndComment />
@@ -33,10 +41,13 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <div className="text-center space-y-1">
               <dl className="space-y-10">
                 <div>
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">{t.publishedOn}</dt>
                   <dd className="text-base font-medium text-gray-500 leading-6 dark:text-gray-400">
                     <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
+                      {new Date(date).toLocaleDateString(
+                        LOCALE_META[locale].dateLocale,
+                        postDateTemplate
+                      )}
                     </time>
                   </dd>
                 </div>
@@ -89,7 +100,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div className="pt-10 pb-8 prose dark:prose-dark max-w-none">{children}</div>
               {/*}
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
+                <Link href={discussUrl(`${siteMetadata.siteUrl}${localePath(locale, `/blog/${slug}`)}`)} rel="nofollow">
                   {'Discuss on Twitter'}
                 </Link>
                 {` • `}
@@ -103,7 +114,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 {tags && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                      Tags
+                      {t.tags}
                     </h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
@@ -117,20 +128,20 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     {prev && (
                       <div>
                         <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          前の記事
+                          {t.prevPost}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
+                          <Link href={localePath(locale, `/blog/${prev.slug}`)}>{prev.title}</Link>
                         </div>
                       </div>
                     )}
                     {next && (
                       <div>
                         <h2 className="text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
-                          次の記事
+                          {t.nextPost}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/blog/${next.slug}`}>{next.title}</Link>
+                          <Link href={localePath(locale, `/blog/${next.slug}`)}>{next.title}</Link>
                         </div>
                       </div>
                     )}
@@ -139,10 +150,10 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               </div>
               <div className="pt-4 xl:pt-8">
                 <Link
-                  href="/blog"
+                  href={localePath(locale, '/blog')}
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  &larr; ブログ一覧へ戻る
+                  &larr; {t.backToBlog}
                 </Link>
               </div>
             </footer>

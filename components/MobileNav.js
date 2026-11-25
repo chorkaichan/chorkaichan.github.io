@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import Link from './Link'
 import headerNavLinks from '@/data/headerNavLinks'
+import { localePath, useLocale, useMessages } from '@/lib/i18n'
 
 const MobileNav = () => {
   const [navShow, setNavShow] = useState(false)
+  const locale = useLocale()
+  const t = useMessages()
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -59,13 +62,13 @@ const MobileNav = () => {
         ></button>
         <nav className="fixed h-full mt-8">
           {headerNavLinks.map((link) => (
-            <div key={link.title} className="px-12 py-4">
+            <div key={link.key} className="px-12 py-4">
               <Link
-                href={link.href}
+                href={localePath(locale, link.href)}
                 className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
                 onClick={onToggleNav}
               >
-                {link.title}
+                {t.nav[link.key]}
               </Link>
             </div>
           ))}

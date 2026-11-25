@@ -1,30 +1,68 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
+import { LOCALES, LOCALE_META, localePath, swapLocale, useLocale } from '@/lib/i18n'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage }) => {
+// Links to the same page in every locale, so that search engines can pair the translations.
+// `alternates` comes from pages that know which translations exist (posts and tags).
+const LocaleAlternates = ({ alternates }) => {
   const router = useRouter()
+  const locale = useLocale()
+  const hrefs = Object.fromEntries(
+    LOCALES.filter((l) => !alternates || alternates[l]?.exists !== false).map((l) => [
+      l,
+      alternates?.[l]?.href || swapLocale(router.asPath, l),
+    ])
+  )
   return (
     <Head>
-      <title>{title}</title>
-      <meta name="robots" content="follow, index" />
-      <meta name="description" content={description} />
-      <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:site_name" content={siteMetadata.title} />
-      <meta property="og:description" content={description} />
-      <meta property="og:title" content={title} />
-      {ogImage.constructor.name === 'Array' ? (
-        ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
-      ) : (
-        <meta property="og:image" content={ogImage} key={ogImage} />
+      <link
+        rel="canonical"
+        href={`${siteMetadata.siteUrl}${hrefs[locale] || swapLocale(router.asPath, locale)}`}
+      />
+      {Object.entries(hrefs).map(([l, href]) => (
+        <link key={l} rel="alternate" hrefLang={l} href={`${siteMetadata.siteUrl}${href}`} />
+      ))}
+      {hrefs.ja && (
+        <link rel="alternate" hrefLang="x-default" href={`${siteMetadata.siteUrl}${hrefs.ja}`} />
       )}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={siteMetadata.twitter} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={twImage} />
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        href={`${siteMetadata.siteUrl}${localePath(locale)}feed.xml`}
+      />
     </Head>
+  )
+}
+
+const CommonSEO = ({ title, description, ogType, ogImage, twImage, alternates }) => {
+  const router = useRouter()
+  const locale = useLocale()
+  return (
+    <>
+      <LocaleAlternates alternates={alternates} />
+      <Head>
+        <title>{title}</title>
+        <meta name="robots" content="follow, index" />
+        <meta name="description" content={description} />
+        <meta property="og:url" content={`${siteMetadata.siteUrl}${router.asPath}`} />
+        <meta property="og:type" content={ogType} />
+        <meta property="og:site_name" content={siteMetadata.title} />
+        <meta property="og:locale" content={LOCALE_META[locale].ogLocale} />
+        <meta property="og:description" content={description} />
+        <meta property="og:title" content={title} />
+        {ogImage.constructor.name === 'Array' ? (
+          ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
+        ) : (
+          <meta property="og:image" content={ogImage} key={ogImage} />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content={siteMetadata.twitter} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={twImage} />
+      </Head>
+    </>
   )
 }
 
@@ -42,10 +80,11 @@ export const PageSEO = ({ title, description }) => {
   )
 }
 
-export const TagSEO = ({ title, description }) => {
+export const TagSEO = ({ title, description, alternates }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
+  const locale = useLocale()
   return (
     <>
       <CommonSEO
@@ -54,21 +93,30 @@ export const TagSEO = ({ title, description }) => {
         ogType="website"
         ogImage={ogImageUrl}
         twImage={twImageUrl}
+        alternates={alternates}
       />
       <Head>
         <link
           rel="alternate"
           type="application/rss+xml"
           title={`${description} - RSS feed`}
-          href={`${siteMetadata.siteUrl}${router.asPath}/feed.xml`}
+          href={`${siteMetadata.siteUrl}${localePath(locale, router.asPath.split(/[?#]/)[0].replace(/^\/(ja|en)/, ''))}feed.xml`}
         />
       </Head>
     </>
   )
 }
 
-export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, images = [] }) => {
-  const router = useRouter()
+export const BlogSEO = ({
+  authorDetails,
+  title,
+  summary,
+  date,
+  lastmod,
+  url,
+  images = [],
+  alternates,
+}) => {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
   let imagesArr =
@@ -133,11 +181,11 @@ export const BlogSEO = ({ authorDetails, title, summary, date, lastmod, url, ima
         ogType="article"
         ogImage={featuredImages}
         twImage={twImageUrl}
+        alternates={alternates}
       />
       <Head>
         {date && <meta property="article:published_time" content={publishedAt} />}
         {lastmod && <meta property="article:modified_time" content={modifiedAt} />}
-        <link rel="canonical" href={`${siteMetadata.siteUrl}${router.asPath}`} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

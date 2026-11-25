@@ -1,68 +1,22 @@
-import fs from 'fs'
-import PageTitle from '@/components/PageTitle'
-import generateRss from '@/lib/generate-rss'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
-
-const DEFAULT_LAYOUT = 'PostLayout'
+// Keeps /blog/<slug> URLs from before the site was bilingual working.
+import LocaleRedirect from '@/components/LocaleRedirect'
+import { getPostSlugs } from '@/lib/content'
+import { LOCALES } from '@/lib/i18n'
 
 export async function getStaticPaths() {
-  const posts = getFiles('blog')
+  const slugs = new Set(LOCALES.flatMap((locale) => getPostSlugs(locale)))
   return {
-    paths: posts.map((p) => ({
-      params: {
-        slug: formatSlug(p).split('/'),
-      },
-    })),
+    paths: [...slugs].map((slug) => ({ params: { slug: slug.split('/') } })),
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params }) {
-  const allPosts = await getAllFilesFrontMatter('blog')
-  const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === params.slug.join('/'))
-  const prev = allPosts[postIndex + 1] || null
-  const next = allPosts[postIndex - 1] || null
-  const post = await getFileBySlug('blog', params.slug.join('/'))
-  const authorList = post.frontMatter.authors || ['default']
-  const authorPromise = authorList.map(async (author) => {
-    const authorResults = await getFileBySlug('authors', [author])
-    return authorResults.frontMatter
-  })
-  const authorDetails = await Promise.all(authorPromise)
-
-  // rss
-  const rss = generateRss(allPosts)
-  fs.writeFileSync('./public/feed.xml', rss)
-
-  return { props: { post, authorDetails, prev, next } }
+  const slug = params.slug.join('/')
+  const available = LOCALES.filter((locale) => getPostSlugs(locale).includes(slug))
+  return { props: { slug, available } }
 }
 
-export default function Blog({ post, authorDetails, prev, next }) {
-  const { mdxSource, toc, frontMatter } = post
-
-  return (
-    <>
-      {frontMatter.draft !== true ? (
-        <MDXLayoutRenderer
-          layout={frontMatter.layout || DEFAULT_LAYOUT}
-          toc={toc}
-          mdxSource={mdxSource}
-          frontMatter={frontMatter}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
-        />
-      ) : (
-        <div className="mt-24 text-center">
-          <PageTitle>
-            Under Construction{' '}
-            <span role="img" aria-label="roadwork sign">
-              🚧
-            </span>
-          </PageTitle>
-        </div>
-      )}
-    </>
-  )
+export default function LegacyPost({ slug, available }) {
+  return <LocaleRedirect path={`/blog/${slug}`} available={available} />
 }

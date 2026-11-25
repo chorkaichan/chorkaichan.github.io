@@ -1,6 +1,9 @@
 import Link from '@/components/Link'
+import { localePath, useLocale, useMessages } from '@/lib/i18n'
 
 export default function Pagination({ totalPages, currentPage }) {
+  const locale = useLocale()
+  const t = useMessages()
   const prevPage = parseInt(currentPage) - 1 > 0
   const nextPage = parseInt(currentPage) + 1 <= parseInt(totalPages)
 
@@ -9,28 +12,29 @@ export default function Pagination({ totalPages, currentPage }) {
       <nav className="flex justify-between">
         {!prevPage && (
           <button rel="previous" className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            前へ
+            {t.prevPage}
           </button>
         )}
         {prevPage && (
           <Link
-            href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}
+            href={localePath(
+              locale,
+              currentPage - 1 === 1 ? '/blog' : `/blog/page/${currentPage - 1}`
+            )}
             rel="prev"
           >
-            前へ
+            {t.prevPage}
           </Link>
         )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
+        <span>{t.pageOf(currentPage, totalPages)}</span>
         {!nextPage && (
           <button rel="next" className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            次へ
+            {t.nextPage}
           </button>
         )}
         {nextPage && (
-          <Link href={`/blog/page/${currentPage + 1}`} rel="next">
-            次へ
+          <Link href={localePath(locale, `/blog/page/${currentPage + 1}`)} rel="next">
+            {t.nextPage}
           </Link>
         )}
       </nav>
