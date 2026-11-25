@@ -1,8 +1,7 @@
-import PageTitle from '@/components/PageTitle'
 import { writeRss } from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { getAuthor, getPost, getPosts, getPostSlugs, postAlternates } from '@/lib/content'
-import { DEFAULT_LOCALE, LOCALES, useMessages } from '@/lib/i18n'
+import { DEFAULT_LOCALE, LOCALES } from '@/lib/i18n'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -39,31 +38,17 @@ export async function getStaticProps({ params }) {
 
 export default function Blog({ post, authorDetails, prev, next, alternates }) {
   const { mdxSource, toc, frontMatter } = post
-  const t = useMessages()
 
   return (
-    <>
-      {frontMatter.draft !== true ? (
-        <MDXLayoutRenderer
-          layout={frontMatter.layout || DEFAULT_LAYOUT}
-          toc={toc}
-          mdxSource={mdxSource}
-          frontMatter={frontMatter}
-          authorDetails={authorDetails}
-          prev={prev}
-          next={next}
-          alternates={alternates}
-        />
-      ) : (
-        <div className="mt-24 text-center">
-          <PageTitle>
-            {t.underConstruction}{' '}
-            <span role="img" aria-label="roadwork sign">
-              🚧
-            </span>
-          </PageTitle>
-        </div>
-      )}
-    </>
+    <MDXLayoutRenderer
+      layout={frontMatter.layout || DEFAULT_LAYOUT}
+      toc={toc}
+      mdxSource={mdxSource}
+      frontMatter={frontMatter}
+      authorDetails={authorDetails}
+      prev={prev}
+      next={next}
+      alternates={alternates}
+    />
   )
 }

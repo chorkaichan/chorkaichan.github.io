@@ -18,9 +18,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { locale, tag } }) {
   const allPosts = await getPosts(locale)
-  const filteredPosts = allPosts.filter(
-    (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(tag)
-  )
+  const filteredPosts = allPosts.filter((post) => post.tags.map((t) => kebabCase(t)).includes(tag))
 
   writeRss(filteredPosts, locale, `${locale}/tags/${tag}/feed.xml`)
   // Keep the pre-bilingual tag feeds for existing subscribers.

@@ -155,6 +155,17 @@ layout: PostLayout
 ---
 ```
 
+### Scheduled posts
+
+A post is published when `draft` is not `true` and its `date` has come.
+A `date` without a time, such as `'2026-12-01'`, goes public at 00:00 JST.
+Until then the post gets no page and stays out of the lists, tags, feeds, and sitemap.
+
+GitHub Actions rebuilds the site every day at 23:57 JST (see `.github/workflows/main.yml`), and the build counts posts dated within 15 minutes as published.
+The text of a scheduled post is readable on GitHub once it is on `main`.
+
+To see scheduled posts locally, run `SHOW_SCHEDULED_POSTS=1 yarn dev`.
+
 ### Compose
 
 Run `node ./scripts/compose.mjs` to bootstrap a new post.
