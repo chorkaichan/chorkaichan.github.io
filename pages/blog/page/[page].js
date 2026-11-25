@@ -1,56 +1,27 @@
-import { PageSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-import ListLayout from '@/layouts/ListLayout'
-import { POSTS_PER_PAGE } from '../../blog'
+// Keeps /blog/page/<n> URLs from before the site was bilingual working.
+import LocaleRedirect from '@/components/LocaleRedirect'
+import { getPosts } from '@/lib/content'
+import { LOCALES } from '@/lib/i18n'
+import { POSTS_PER_PAGE } from '../../[locale]/blog'
+
+const totalPages = async (locale) => Math.ceil((await getPosts(locale)).length / POSTS_PER_PAGE)
 
 export async function getStaticPaths() {
-  const totalPosts = await getAllFilesFrontMatter('blog')
-  const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
-  }))
-
+  const max = Math.max(...(await Promise.all(LOCALES.map(totalPages))))
   return {
-    paths,
+    paths: Array.from({ length: max }, (_, i) => ({ params: { page: `${i + 1}` } })),
     fallback: false,
   }
 }
 
-export async function getStaticProps(context) {
-  const {
-    params: { page },
-  } = context
-  const posts = await getAllFilesFrontMatter('blog')
-  const pageNumber = parseInt(page)
-  const initialDisplayPosts = posts.slice(
-    POSTS_PER_PAGE * (pageNumber - 1),
-    POSTS_PER_PAGE * pageNumber
-  )
-  const pagination = {
-    currentPage: pageNumber,
-    totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
+export async function getStaticProps({ params: { page } }) {
+  const available = []
+  for (const locale of LOCALES) {
+    if (parseInt(page) <= (await totalPages(locale))) available.push(locale)
   }
-
-  return {
-    props: {
-      posts,
-      initialDisplayPosts,
-      pagination,
-    },
-  }
+  return { props: { page, available } }
 }
 
-export default function PostPage({ posts, initialDisplayPosts, pagination }) {
-  return (
-    <>
-      <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <ListLayout
-        posts={posts}
-        initialDisplayPosts={initialDisplayPosts}
-        pagination={pagination}
-        title="All Posts"
-      />
-    </>
-  )
+export default function LegacyPage({ page, available }) {
+  return <LocaleRedirect path={`/blog/page/${page}`} available={available} />
 }

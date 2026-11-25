@@ -5,6 +5,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 module.exports = withBundleAnalyzer({
   // The site is hosted on GitHub Pages, so `next build` writes a static site to out/.
   output: 'export',
+  // Export /ja/ as ja/index.html instead of ja.html, so GitHub Pages serves both /ja and /ja/.
+  trailingSlash: true,
   images: {
     unoptimized: true,
   },

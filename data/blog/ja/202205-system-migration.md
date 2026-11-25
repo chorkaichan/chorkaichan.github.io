@@ -81,7 +81,7 @@ Cognito に関わらず、AWS サービスは実装する上で少々癖があ�
 
 ## DB
 
-Firebase Auth をやめたことで、Firestore と連携することができなくなったため、DB 移行も行いました（MongoDB を採用することにした理由は[こちら](https://chorkaichan.github.io/blog/202111-late)）。
+Firebase Auth をやめたことで、Firestore と連携することができなくなったため、DB 移行も行いました（MongoDB を採用することにした理由は[こちら](https://chorkaichan.github.io/ja/blog/202111-late)）。
 
 リリース以後の機能追加で DB スキーマがごちゃごちゃになっていましたが、この移行作業を通じて整理することができました。マイグレーションについては後述します。
 

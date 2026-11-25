@@ -1,8 +1,10 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import { localePath, useLocale } from '@/lib/i18n'
 
 export default function Footer() {
+  const locale = useLocale()
   return (
     <footer>
       <div className="flex flex-col items-center mt-16">
@@ -19,7 +21,7 @@ export default function Footer() {
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
           <div>{` • `}</div>
-          <Link href="/">{siteMetadata.title}</Link>
+          <Link href={localePath(locale)}>{siteMetadata.title}</Link>
         </div>
       </div>
     </footer>
