@@ -1,7 +1,7 @@
 ---
 title: 'Music and Generative AI from an Engineer’s Point of View'
 date: '2026-12-01'
-tags: ['Notes', 'AI', 'Music']
+tags: ['Notes']
 draft: false
 summary: 'How today’s AI works and how it has changed the work of software engineers, followed by my personal take on the future of music and AI. This is the Day 1 post of the "Musicians’ Lives and AI Advent Calendar 2026".'
 ---
