@@ -32,7 +32,7 @@ When I came to Tokyo for university, I started going to art museums a lot. I'd t
 
 ↑ A catalog of works given out for free at the art gallery
 
-An exhibition can sometimes hit you hard enough to completely change how you see the world. Looking at something you've always seen from the other side makes you notice things you never would have thought of. Running into something beyond the bounds of your own common sense makes you realize something completely new. Something you could only grasp abstractly in the moment can, after chewing on it for a long time, lead to discoveries that even change your values. For someone who already loves to think, art was something I couldn't do without.
+An exhibition can sometimes hit you hard enough to completely change how you see the world. Looking at something you've always seen from the other side makes you notice things you never would have thought of. Running into something beyond the bounds of your own common sense makes you realize something completely new. Something you could only grasp abstractly in the moment can, after chewing on it for a long time, lead to discoveries that even change your values. For someone like me who has always loved to think, art was something I couldn't do without.
 
 ## Slowly Declining, and Eventually Gone
 
@@ -46,7 +46,7 @@ The other day I came across [an article saying there is now only one craftsman l
 
 \*Here's [a link to a biwa performance](https://www.youtube.com/watch?v=TJ2NpHZ_kDk) from the Traditional Music Digital Library at Senzoku Gakuen.
 
-Having no instrument makers means there's little demand for the instrument. Little demand means there are few players. Few players means few people ever hear it played (especially live). Few people hearing it played speeds up the decline in players even more. As this negative feedback loop progresses, slowly but surely, the culture slowly declines and eventually disappears.
+Having no instrument makers means there's little demand for the instrument. Little demand means there are few players. Few players probably means few people ever hear it played (especially live). Few people hearing it played speeds up the decline in players even more. As this negative feedback loop progresses, slowly but surely, the culture slowly declines and eventually disappears.
 
 ## Cultures That Don't Fit Well with a Social-Media-Driven Society
 
@@ -58,7 +58,7 @@ A typical example of a culture that fits well with this advertising-driven socie
 
 As the name suggests, popular music has long been loved by many people through the media. When a song that was popular in your school days plays around town, you can't help feeling nostalgic and listening in. Naturally, creators of popular music are prized for that catchiness.
 
-YouTube is a prime example of skillfully turning this situation into a system. Instead of just letting you watch videos, it shows ads. Viewers want to see what comes next, so they put up with a few to a dozen-plus seconds of ads, thinking, "It's annoying, but it's free, so whatever." As a result, the content of the ads sinks in without them noticing, and thanks to the [mere-exposure effect](https://ja.wikipedia.org/wiki/%E5%8D%98%E7%B4%94%E6%8E%A5%E8%A7%A6%E5%8A%B9%E6%9E%9C), sales of the advertised products may go up.
+YouTube is a prime example of skillfully turning this situation into a system. In exchange for letting you watch videos, it shows you ads. Viewers want to see what comes next, so they put up with a few to a dozen-plus seconds of ads, thinking, "It's annoying, but it's free, so whatever." As a result, the content of the ads sinks in without them noticing, and thanks to the [mere-exposure effect](https://ja.wikipedia.org/wiki/%E5%8D%98%E7%B4%94%E6%8E%A5%E8%A7%A6%E5%8A%B9%E6%9E%9C), sales of the advertised products may go up.
 
 Advertisers want to reach more people, and people who are more interested. Creators, by going viral, can deliver ads to more people and earn money from it. YouTube (the platform) matches ads with viewers, shows more relevant ads, and boosts their effectiveness to maximize ad revenue.
 
@@ -68,7 +68,7 @@ So what kind of culture doesn't fit well with an advertising-driven society? Fli
 
 It was always a business where the best you could hope for was selling tickets at a few thousand yen a seat in halls holding a few thousand people at most. Popular music, on the other hand, is a business where million sellers (over a million copies sold) are nothing unusual. The number of consumers is literally orders of magnitude different.
 
-Of course, the situation varies within classical music too. The piano, for example, likely has a large market, partly thanks to the [piano boom](https://www.excite.co.jp/news/article/Bizjournal_mixi201901_post-14358/) during Japan's period of rapid economic growth. In genres with relatively large markets like this, top professionals and well-known influencers can probably manage to make a comfortable living.
+Of course, the situation varies within classical music too. The piano, for example, likely has a large market, partly thanks to the [piano boom](https://www.excite.co.jp/news/article/Bizjournal_mixi201901_post-14358/) during Japan's period of rapid economic growth. In genres with relatively large markets like this, top professionals and well-known influencers can probably manage to earn enough to get by.
 
 Now, what about the biwa I mentioned earlier? Do you know the names of any top biwa professionals? How much do you know about the people who make a living from the biwa? I'm embarrassed to say that I don't know much either. The first thing you learn about the biwa is its plight, not its sound.
 
@@ -94,11 +94,11 @@ Even thinking about it briefly, it's easy to imagine how hard it is. (That's exa
 
 ## My Motivation and Where I'm Headed
 
-I like to think. And I love the diverse cultures that encourage it. But the fact that some cultures are about to disappear right now leaves me a little uneasy. My motivation is to witness these cultures survive, grow, and collaborate, and new cultures bloom out of that whole process, and to satisfy my own intellectual curiosity along the way.
+I like to think. And I love the diverse cultures that encourage it. But the fact that some cultures are about to disappear right now leaves me a little uneasy. My motivation is to witness the whole process of these cultures surviving, growing, and collaborating until new cultures bloom from them, and to satisfy my own intellectual curiosity that way.
 
 But there are two challenges. There are cultures that don't fit well with a social-media-driven (advertising-driven) society, and growing those cultures takes a long time.
 
-The latter is something only the people directly involved can solve. If an outsider who doesn't fully understand the culture's appeal pokes their nose in, it'll just end up as a stopgap.
+The latter is something only the people directly involved can solve. If an outsider who doesn't fully understand the culture's appeal pokes their nose in, it'll just end up half-baked.
 
 The former, on the other hand, is simply a structural problem. I think problems like this often go better with help from a third party than when the people inside the structure try to solve them on their own. If you think of the relationship between a company and a consultant, it probably makes sense.
 
@@ -114,4 +114,4 @@ At the same time, there's a time limit. If I want to keep having cultural experi
 
 I'm currently involved in several projects, including initium ; auditorium. Each takes a different approach, but they all share the goal of protecting cultures and helping new ones grow.
 
-One person alone can't do much, but with many people who share the same view, we can really get the word out. I'd be grateful if you'd keep a warm eye on what we're doing.
+One person alone can't do much, but with many people who share the same view, we can really get the word out. I'd be grateful if you'd kindly keep watching over what we're doing.

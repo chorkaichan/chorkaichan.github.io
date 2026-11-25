@@ -92,7 +92,7 @@ On a smartphone, the panel slides up from the bottom. If you add it to your home
 
 My usual routine looks like this:
 
-1. In the morning, import the day's tasks from Linear and hand them all out to the cats with Let them decide (おまかせで渡す)
+1. In the morning, import the day's tasks from Linear and hand them all out to the cats with Auto-assign (おまかせで渡す)
 2. When a cat asks a question or requests permission, open it from the notification and answer
 3. When results arrive, check them, then send the next instruction or review the PR
 4. In the evening, look back over the day's results in the Done tab
@@ -146,7 +146,7 @@ The miniature garden isn't just for looks. It's designed so that where a cat is 
 
 Just by closing the panel and gazing at the garden, you can tell which cat you should talk to.
 
-This part is purely a hobby, but I've also put a lot of work into the details of daily life. As the cats complete more work, the furniture grows: a rug, a cat tower, a goldfish bowl. Cats that often work together become friends and groom each other. The garden reflects the time of day and the season, and it even rains or snows to match the real weather (this weather feature turned out to be surprisingly handy once I built it). Long-press a cat and you can pet it.
+This part is purely for my own enjoyment, but I've also put a lot of work into the little details of the cats' everyday life. As the cats complete more work, more furniture appears: a rug, a cat tower, a goldfish bowl. Cats that often work together become friends and groom each other. The garden reflects the time of day and the season, and it even rains or snows to match the real weather (this weather feature turned out to be surprisingly handy once I built it). Long-press a cat and you can pet it.
 
 ## Closing
 
