@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "SHOW_SCHEDULED_POSTS=1 yarn build",
+  "outputDirectory": "out",
+  "trailingSlash": true,
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
+    }
+  ]
+}
