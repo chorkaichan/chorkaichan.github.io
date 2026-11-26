@@ -15,11 +15,12 @@ const Disqus = ({ frontMatter }) => {
   function LoadComments() {
     setEnabledLoadComments(false)
 
-    window.disqus_config = function () {
+    const config = function () {
       this.page.url = window.location.href
       this.page.identifier = identifier
       this.language = locale
     }
+    window.disqus_config = config
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
       script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
@@ -27,7 +28,8 @@ const Disqus = ({ frontMatter }) => {
       script.async = true
       document.body.appendChild(script)
     } else {
-      window.DISQUS.reset({ reload: true })
+      // Without `config`, reset() keeps the thread of the post that loaded Disqus first.
+      window.DISQUS.reset({ reload: true, config })
     }
   }
 
