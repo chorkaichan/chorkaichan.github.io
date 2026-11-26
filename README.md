@@ -166,6 +166,14 @@ The text of a scheduled post is readable on GitHub once it is on `main`.
 
 To see scheduled posts locally, run `SHOW_SCHEDULED_POSTS=1 yarn dev`.
 
+To see them on the web, open a pull request. Vercel deploys a preview of every branch except `main`, and `vercel.json` builds the preview with `SHOW_SCHEDULED_POSTS=1`.
+Vercel posts the preview URL on the pull request.
+The preview is only for checking posts before they go public:
+
+- Every response has `X-Robots-Tag: noindex, nofollow`, so search engines do not index it.
+- Keep Vercel Authentication on for preview deployments (Project Settings → Deployment Protection), so that only signed-in members of the Vercel team can open it.
+- The production site stays on GitHub Pages, and `main` is not deployed to Vercel.
+
 ### Compose
 
 Run `node ./scripts/compose.mjs` to bootstrap a new post.
