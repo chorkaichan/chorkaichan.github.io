@@ -1,5 +1,6 @@
 import siteMetadata from '@/data/siteMetadata'
 import dynamic from 'next/dynamic'
+import { useLocale } from '@/lib/i18n'
 
 const UtterancesComponent = dynamic(
   () => {
@@ -21,6 +22,7 @@ const DisqusComponent = dynamic(
 )
 
 const Comments = ({ frontMatter }) => {
+  const locale = useLocale()
   let term
   switch (
     siteMetadata.comment.giscusConfig.mapping ||
@@ -45,7 +47,9 @@ const Comments = ({ frontMatter }) => {
         <UtterancesComponent issueTerm={term} />
       )}
       {siteMetadata.comment && siteMetadata.comment.provider === 'disqus' && (
-        <DisqusComponent frontMatter={frontMatter} />
+        // Remount per post so client-side navigation shows the button again
+        // instead of keeping the previous post's thread.
+        <DisqusComponent key={`${locale}/${frontMatter.slug}`} frontMatter={frontMatter} />
       )}
     </div>
   )

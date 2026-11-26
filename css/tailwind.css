@@ -35,3 +35,20 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+
+/*
+  Disqus reads the text and background colors around its container to pick a
+  light or dark theme, but it cannot parse the lab() / oklch() colors that
+  Tailwind CSS v4 produces and stops loading. Give the container the same
+  colors as text-gray-700 / bg-white and dark:text-gray-300 / dark:bg-gray-900
+  (gray is neutral in tailwind.config.js), written as plain rgb().
+*/
+#disqus_thread {
+  color: rgb(64 64 64);
+  background-color: rgb(255 255 255);
+}
+
+.dark #disqus_thread {
+  color: rgb(212 212 212);
+  background-color: rgb(23 23 23);
+}
